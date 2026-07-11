@@ -1,27 +1,39 @@
 {
   "compilerOptions": {
-    "target":                     "ES2022",
-    "module":                     "CommonJS",
-    "lib":                        ["ES2022"],
-    "outDir":                     "./dist",
-    "rootDir":                    "./src",
-    "strict":                     true,
-    "esModuleInterop":            true,
-    "skipLibCheck":               true,
+    "target": "ES2022",
+    "module": "CommonJS",
+    "lib": [
+      "ES2022"
+    ],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule":          true,
-    "declaration":                true,
-    "declarationMap":             true,
-    "sourceMap":                  true,
-    "removeComments":             false,
-    "noImplicitAny":              true,
-    "strictNullChecks":           true,
-    "noUnusedLocals":             false,
-    "noUnusedParameters":         false,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@db/*": [
+        "../database/prisma/*"
+      ]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

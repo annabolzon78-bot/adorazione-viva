@@ -1,3 +1,4 @@
+import { tokenBlacklist } from '../services/tokenBlacklist'
 import type { Request, Response } from 'express'
 import type { AuthRequest } from '../types'
 import { authService } from '../services/auth.service'

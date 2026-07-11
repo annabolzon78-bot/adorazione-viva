@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import type { Chapel, MapFilter } from '../types'
 
 // Dati di fallback per sviluppo locale senza backend
+// ⚠️  DATI DEMO — visualizzati solo quando il backend non risponde
 const FALLBACK_CHAPELS: Chapel[] = [
   { id:'1', name:"Basilica di San Pietro", address:"Piazza San Pietro", city:"Roma", country:"Italy", lat:41.902, lng:12.453, adorationType:'PERPETUA', isOpenNow:true, is24h:true, hasLiveStream:false, hasConfessions:true, accessible:true, schedule:[], createdAt:'', updatedAt:'', hasMass:true },
   { id:'2', name:"Cappella dell'Adorazione", address:"Fair Green, Navan", city:"Navan", country:"Ireland", lat:53.655, lng:-6.69, adorationType:'PERPETUA', isOpenNow:true, is24h:true, hasLiveStream:true, hasConfessions:true, accessible:true, schedule:[], createdAt:'', updatedAt:'', streamUrl:'https://www.youtube.com/live/hMNLrStmcTs', hasMass:true },

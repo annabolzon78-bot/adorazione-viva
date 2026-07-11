@@ -92,12 +92,14 @@ export function StreamPlayer({ stream, autoplay = true }: Props) {
 
   if (stream.type === 'CUSTOM_EMBED' && stream.embedHtml) {
     return (
-      <div className="player-wrap">
-        <div
-          className="player-custom-embed"
-          dangerouslySetInnerHTML={{ __html: stream.embedHtml }}
+      <iframe
+          className="player-iframe"
+          srcDoc={stream.embedHtml}
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+          referrerPolicy="strict-origin-when-cross-origin"
+          style={{ width:'100%', height:'100%', border:'none' }}
+          title={stream.title}
         />
-      </div>
     )
   }
 

@@ -1,3 +1,4 @@
+import { tokenBlacklist } from '../services/tokenBlacklist'
 import type { Response, NextFunction } from 'express'
 import type { AuthRequest } from '../types'
 import { jwtUtils } from '../utils/jwt'
