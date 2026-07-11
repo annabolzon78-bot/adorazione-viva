@@ -154,3 +154,12 @@ function PlayerError({ message, stream }: { message: string; stream: StreamData 
     </div>
   )
 }
+
+/*
+ * NOTE HLS.js bundle size:
+ * hls.js produce un chunk da ~525KB (gzip: ~162KB).
+ * È caricato in modo lazy SOLO per stream di tipo HLS.
+ * Non impatta il caricamento iniziale dell'app.
+ * YouTube/Vimeo/Facebook non richiedono hls.js.
+ * Non è possibile ridurre ulteriormente senza fork della libreria.
+ */

@@ -83,7 +83,10 @@
     "address": "住所",
     "filter_type": "礼拝の種類",
     "legend": "凡例",
-    "all_types": "すべて"
+    "all_types": "すべて",
+    "geo_denied": "位置情報へのアクセスが拒否されました",
+    "geo_loading": "位置情報を取得中...",
+    "geo_searching": "近くの礼拝堂を検索中..."
   },
   "live": {
     "title": "Adorazione Viva",

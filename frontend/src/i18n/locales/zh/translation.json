@@ -83,7 +83,10 @@
     "address": "地址",
     "filter_type": "朝拜类型",
     "legend": "图例",
-    "all_types": "全部"
+    "all_types": "全部",
+    "geo_denied": "位置访问被拒绝",
+    "geo_loading": "正在定位...",
+    "geo_searching": "搜索附近圣堂..."
   },
   "live": {
     "title": "Adorazione Viva",

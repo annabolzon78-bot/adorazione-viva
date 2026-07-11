@@ -83,7 +83,10 @@
     "address": "주소",
     "filter_type": "경배 유형",
     "legend": "범례",
-    "all_types": "전체"
+    "all_types": "전체",
+    "geo_denied": "위치 접근이 거부되었습니다",
+    "geo_loading": "위치 확인 중...",
+    "geo_searching": "근처 성당 검색 중..."
   },
   "live": {
     "title": "Adorazione Viva",

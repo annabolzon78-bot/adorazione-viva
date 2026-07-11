@@ -291,3 +291,45 @@
 /* Leaflet override */
 .leaflet-container { font-family: 'Lato', sans-serif !important; }
 .leaflet-control-attribution { font-size: .6rem !important; }
+
+/* ── GEOLOCALIZZAZIONE ── */
+.geo-bar { padding:8px 14px; background:var(--white); border-bottom:1px solid var(--br); }
+
+.geo-btn {
+  display:flex; align-items:center; gap:6px;
+  padding:7px 14px; background:var(--red); color:#fff;
+  border:none; border-radius:8px; font-size:.78rem; font-weight:700;
+  cursor:pointer; font-family:'Lato',sans-serif; transition:all .2s;
+}
+.geo-btn:hover:not(:disabled) { background:var(--red2); }
+.geo-btn-denied { background:#9ca3af !important; cursor:not-allowed; }
+.geo-loading { font-size:.78rem; color:var(--t3); padding:7px 0; display:flex; align-items:center; gap:6px; }
+
+.geo-active { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.geo-ok { font-size:.78rem; color:var(--text); font-weight:600; }
+.geo-radius-pills { display:flex; gap:4px; }
+.geo-radius-pill {
+  padding:3px 10px; border-radius:20px; font-size:.68rem; font-weight:700;
+  border:1.5px solid var(--br); background:var(--bg); color:var(--t2);
+  cursor:pointer; font-family:'Lato',sans-serif; transition:all .18s;
+}
+.geo-radius-pill.active { background:var(--red); border-color:var(--red); color:#fff; }
+.geo-clear {
+  background:none; border:1px solid var(--br); border-radius:50%; width:24px; height:24px;
+  font-size:.7rem; cursor:pointer; color:var(--t3); flex-shrink:0; margin-left:auto;
+}
+
+/* Demo banner */
+.demo-banner {
+  background:#fef3c7; border-bottom:1px solid #fcd34d;
+  padding:6px 14px; font-size:.72rem; color:#92400e; text-align:center;
+}
+
+/* Map container */
+.trova-page { display:flex; flex-direction:column; height:100%; }
+.map-container { flex:1; position:relative; min-height:300px; }
+.map-loading-overlay {
+  position:absolute; inset:0; background:rgba(250,248,245,.85);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cinzel',serif; color:var(--red); z-index:10;
+}

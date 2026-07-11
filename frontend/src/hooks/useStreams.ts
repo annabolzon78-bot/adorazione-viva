@@ -162,19 +162,17 @@ export function useStreams(filter: StreamFilter = {}) {
 }
 
 export async function updateStreamStatus(id: string, status: string, viewerCount?: number) {
-  const token = localStorage.getItem('av_token')
   return window.fetch(`${API_URL}/streams/${id}/status`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+
     body: JSON.stringify({ status, viewerCount }),
   })
 }
 
 export async function createStream(data: Record<string, unknown>) {
-  const token = localStorage.getItem('av_token')
   const res = await window.fetch(`${API_URL}/streams`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+
     body: JSON.stringify(data),
   })
   return res.json()

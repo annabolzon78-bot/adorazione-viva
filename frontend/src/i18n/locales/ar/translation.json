@@ -83,7 +83,10 @@
     "address": "العنوان",
     "filter_type": "نوع السجدة",
     "legend": "المفتاح",
-    "all_types": "الكل"
+    "all_types": "الكل",
+    "geo_denied": "تم رفض الوصول إلى الموقع",
+    "geo_loading": "جاري التحديد...",
+    "geo_searching": "البحث عن كنائس قريبة..."
   },
   "live": {
     "title": "Adorazione Viva",

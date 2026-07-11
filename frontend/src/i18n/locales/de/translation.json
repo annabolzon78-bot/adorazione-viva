@@ -83,7 +83,10 @@
     "address": "ADRESSE",
     "filter_type": "ANBETUNGSART",
     "legend": "LEGENDE",
-    "all_types": "Alle"
+    "all_types": "Alle",
+    "geo_denied": "Standortzugriff verweigert",
+    "geo_loading": "Wird gesucht...",
+    "geo_searching": "Suche nahe Kapellen..."
   },
   "live": {
     "title": "Adorazione Viva",

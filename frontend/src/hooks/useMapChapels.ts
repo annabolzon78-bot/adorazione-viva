@@ -27,21 +27,23 @@ const FALLBACK_CHAPELS: Chapel[] = [
 ]
 
 export interface UseMapChapelsOptions {
-  filter: MapFilter
-  searchTerm: string
-  searchCity: string
-  searchCountry: string
+  filter?:       MapFilter
+  searchTerm?:   string
+  searchCity?:   string
+  searchCountry?: string
 }
 
 export interface UseMapChapelsResult {
-  chapels:   Chapel[]
-  loading:   boolean
-  error:     string | null
-  total:     number
-  refetch:   () => void
+  chapels:    Chapel[]
+  loading:    boolean
+  error:      string | null
+  total:      number
+  isDemoData: boolean
+  refetch:    () => void
 }
 
-export function useMapChapels(options: UseMapChapelsOptions): UseMapChapelsResult {
+export function useMapChapels(opts: UseMapChapelsOptions = {}): UseMapChapelsResult {
+  const options = { filter:{}, searchTerm:'', searchCity:'', searchCountry:'', ...opts }
   const [chapels, setChapels] = useState<Chapel[]>([])
   const [loading, setLoading]  = useState(true)
   const [error, setError]      = useState<string | null>(null)
@@ -115,5 +117,5 @@ export function useMapChapels(options: UseMapChapelsOptions): UseMapChapelsResul
 
   useEffect(() => { fetchChapels() }, [fetchChapels])
 
-  return { chapels, loading, error, total, refetch: fetchChapels }
+  return { chapels, loading, error, total, isDemoData: chapels.some(ch => ch.name?.includes('[DEMO]') || false), refetch: fetchChapels }
 }

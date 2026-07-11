@@ -1,3 +1,4 @@
+import { supabase } from '../../lib/supabase'
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -27,7 +28,7 @@ export function DashboardLayout({ user, activeTab, setActiveTab, unread=0, child
   const visible = NAV.filter(n => n.roles.includes(user.role))
   const roleLabel: Record<UserRole,string> = {
     USER:'Utente', PARISH_ADMIN:'Admin Parrocchia',
-    DIOCESE_ADMIN:'Admin Diocesi', ADMIN:'Amministratore', SUPER_ADMIN:'Super Admin'
+    DIOCESE_ADMIN:'Admin Diocesi', MODERATOR:'Moderatore', ADMIN:'Amministratore', SUPER_ADMIN:'Super Admin'
   }
   return (
     <div className="dash-root">
@@ -64,7 +65,7 @@ export function DashboardLayout({ user, activeTab, setActiveTab, unread=0, child
         </nav>
         <div className="ds-footer">
           <button className="ds-footer-btn" onClick={()=>navigate('/')}>← App</button>
-          <button className="ds-footer-btn ds-footer-logout" onClick={()=>{localStorage.removeItem('av_token');navigate('/')}}>Esci</button>
+          <button className="ds-footer-btn ds-footer-logout" onClick={async()=>{await supabase.auth.signOut();navigate('/')}}>Esci</button>
         </div>
       </aside>
       {sideOpen && <div className="dash-overlay" onClick={()=>setSideOpen(false)}/>}

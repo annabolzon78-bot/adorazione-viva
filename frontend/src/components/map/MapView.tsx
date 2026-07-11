@@ -33,10 +33,12 @@ function makeIcon(chapel: Chapel, L: any): any {
 }
 
 interface Props {
-  chapels:         Chapel[]
-  selectedChapel:  Chapel | null
-  onSelectChapel:  (chapel: Chapel) => void
-  loading:         boolean
+  chapels:        Chapel[]
+  selectedChapel: Chapel | null
+  onSelectChapel: (chapel: Chapel) => void
+  loading?:       boolean
+  center?:        { lat: number; lng: number }
+  zoom?:          number
 }
 
 export function MapView({ chapels, selectedChapel, onSelectChapel, loading }: Props) {

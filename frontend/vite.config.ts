@@ -24,10 +24,12 @@ export default defineConfig({
           map:      ['leaflet'],
           supabase: ['@supabase/supabase-js'],
           i18n:     ['i18next', 'react-i18next'],
+          // hls.js NON è nel manualChunks: viene caricato dinamicamente
+          // solo quando serve un HLS stream (già implementato in StreamPlayer)
         },
       },
     },
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 700,
   },
   test: {
     globals:     true,

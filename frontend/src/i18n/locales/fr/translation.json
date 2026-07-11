@@ -83,7 +83,10 @@
     "address": "ADRESSE",
     "filter_type": "TYPE D'ADORATION",
     "legend": "LÉGENDE",
-    "all_types": "Tous"
+    "all_types": "Tous",
+    "geo_denied": "Accès à la position refusé",
+    "geo_loading": "Localisation...",
+    "geo_searching": "Recherche de chapelles proches..."
   },
   "live": {
     "title": "Adorazione Viva",
