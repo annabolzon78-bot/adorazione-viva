@@ -1,15 +1,30 @@
-// ── Chapel ────────────────────────────────────
+/**
+ * Frontend shared types
+ * 
+ * NOTE: i tipi del database (tabelle Supabase) sono in types/database.ts
+ * Qui ci sono i tipi applicativi del frontend.
+ */
+
+// ── Chapel ───────────────────────────────────────────────────
 export type AdorationTypeEnum =
-  | 'PERPETUA'
-  | 'GIORNALIERA'
-  | 'SETTIMANALE'
-  | 'MENSILE'
-  | 'OCCASIONALE'
+  | 'PERPETUA' | 'GIORNALIERA' | 'SETTIMANALE'
+  | 'MENSILE' | 'OCCASIONALE' | 'ONLINE'
+
+export interface Schedule {
+  id:        string
+  chapelId:  string
+  dayOfWeek: number
+  startTime: string
+  endTime:   string
+  type:      'MASS' | 'ADORATION' | 'CONFESSION'
+  rite?:     string
+  notes?:    string
+}
 
 export interface Chapel {
   id:             string
   name:           string
-  address:        string
+  address?:       string
   city?:          string
   country?:       string
   lat:            number
@@ -31,16 +46,7 @@ export interface Chapel {
   updatedAt:      string
 }
 
-export interface Schedule {
-  id:          string
-  chapelId:    string
-  dayOfWeek:   number
-  startTime:   string
-  endTime:     string
-  type:        'MASS' | 'ADORATION' | 'CONFESSION'
-}
-
-// ── Map Filter ────────────────────────────────
+// ── Map Filter ───────────────────────────────────────────────
 export interface MapFilter {
   type?:           AdorationTypeEnum
   openNow?:        boolean
@@ -52,47 +58,23 @@ export interface MapFilter {
   lng?:            number
 }
 
-// ── Parish ────────────────────────────────────
+// ── Parish ───────────────────────────────────────────────────
 export interface Parish {
-  id:          string
-  name:        string
-  address:     string
-  city?:       string
-  country?:    string
-  lat:         number
-  lng:         number
-  email?:      string
-  phone?:      string
-  website?:    string
-  responsable?:string
-  chapels:     Chapel[]
-  verified:    boolean
+  id:       string
+  name:     string
+  address?: string
+  city?:    string
+  country?: string
+  lat?:     number
+  lng?:     number
+  email?:   string
+  phone?:   string
+  website?: string
+  chapels:  Chapel[]
+  verified: boolean
 }
 
-// ── User ──────────────────────────────────────
-export interface User {
-  id:                 string
-  email:              string
-  name:               string
-  displayName?:       string
-  avatarUrl?:         string
-  country?:           string
-  role:               'USER' | 'PARISH_ADMIN' | 'DIOCESE_ADMIN' | 'ADMIN' | 'SUPER_ADMIN'
-  adoringNow:         boolean
-  totalAdorationHours: number
-  currentStreak:      number
-  createdAt:          string
-}
-
-// ── Stats ─────────────────────────────────────
-export interface GlobalStats {
-  adorersNow:      number
-  nationsNow:      number
-  totalChapels:    number
-  perpetualChapels: number
-}
-
-// ── API Response ──────────────────────────────
+// ── API Response (backend Express legacy) ────────────────────
 export interface ApiResponse<T> {
   success: boolean
   data:    T

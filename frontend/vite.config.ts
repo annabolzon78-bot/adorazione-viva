@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import react            from '@vitejs/plugin-react'
+import { resolve }      from 'path'
 
 export default defineConfig({
   plugins: [react()],
@@ -20,10 +20,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          map: ['leaflet'],
+          vendor:   ['react', 'react-dom', 'react-router-dom'],
+          map:      ['leaflet'],
+          supabase: ['@supabase/supabase-js'],
+          i18n:     ['i18next', 'react-i18next'],
         },
       },
     },
+    chunkSizeWarningLimit: 600,
+  },
+  test: {
+    globals:     true,
+    environment: 'jsdom',
+    setupFiles:  ['./src/test/setup.ts'],
+    include:     ['src/**/*.{test,spec}.{ts,tsx}'],
   },
 })
