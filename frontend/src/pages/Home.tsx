@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useAdoration }   from '../hooks/useAdoration'
 
 const STREAMS = [
   'https://www.youtube.com/embed/hMNLrStmcTs?autoplay=1&rel=0&modestbranding=1',
@@ -8,20 +9,10 @@ const STREAMS = [
 ]
 
 export function Home() {
-  const { t } = useTranslation()
-  const navigate  = useNavigate()
-  const [count,   setCount]      = useState(18427)
-  const [adoring, setAdoring]    = useState(false)
-  const [liveIdx, setLiveIdx]    = useState(0)
-
-  useEffect(() => {
-    const tick = setInterval(() => {
-      setCount(v => v + Math.floor(Math.sin(Date.now() / 9000) * 200 + Math.random() * 60 - 30))
-    }, 5000)
-    return () => clearInterval(tick)
-  }, [])
-
-  const toggle = () => { setAdoring(p => !p); setCount(v => v + (adoring ? -1 : 1)) }
+  const { t }    = useTranslation()
+  const navigate = useNavigate()
+  const { stats, adoring, toggle } = useAdoration()
+  const [liveIdx, setLiveIdx]      = useState(0)
 
   const SHORTCUTS = [
     { ico:'🗺️', lbl: t('home.find_jesus'),  sub: t('home.find_jesus_sub'),  to:'/trova' },
@@ -38,17 +29,24 @@ export function Home() {
         <div className="hh-sub">{t('home.hero_sub')}</div>
       </div>
 
+      {/* Demo banner */}
+      {stats.isDemo && !stats.isLoading && (
+        <div style={{ background:'#fef3c7', borderBottom:'1px solid #fcd34d', padding:'6px 14px', textAlign:'center', fontSize:'.7rem', color:'#92400e' }}>
+          📊 [DEMO] Dati simulati — il contatore reale si attiva dopo la configurazione Supabase
+        </div>
+      )}
+
       <div style={{ textAlign:'center', margin:'12px 0' }}>
         <span className="live-chip">
           <span className="ldot"/>
-          {count.toLocaleString()} {t('home.people_adoring')} · 132 {t('home.nations')}
+          {stats.isLoading ? '...' : stats.total.toLocaleString()} {t('home.people_adoring')} · {stats.nations} {t('home.nations')}
         </span>
       </div>
 
       <div className="home-stats">
         <div className="hs-item"><span className="hs-num">4.218</span><span className="hs-lbl">{t('home.chapels_world')}</span></div>
         <div className="hs-item"><span className="hs-num">312</span><span className="hs-lbl">{t('home.perpetual_count')}</span></div>
-        <div className="hs-item"><span className="hs-num">{count.toLocaleString()}</span><span className="hs-lbl">{t('home.adorers_now')}</span></div>
+        <div className="hs-item"><span className="hs-num">{stats.isLoading ? '...' : stats.total.toLocaleString()}</span><span className="hs-lbl">{t('home.adorers_now')}</span></div>
       </div>
 
       <button
@@ -78,9 +76,7 @@ export function Home() {
         />
         <div style={{ padding:'10px 14px', display:'flex', alignItems:'center', gap:8 }}>
           <span className="ldot"/>
-          <div>
-            <div style={{ fontFamily:'Cinzel,serif', fontSize:'.72rem', color:'#e8d08a' }}>{t('home.live_label')}</div>
-          </div>
+          <div style={{ fontFamily:'Cinzel,serif', fontSize:'.72rem', color:'#e8d08a' }}>{t('home.live_label')}</div>
           <div style={{ marginLeft:'auto', fontSize:'.62rem', color:'rgba(245,237,224,.45)', cursor:'pointer', borderBottom:'1px solid rgba(245,237,224,.2)' }}
             onClick={() => setLiveIdx(i => (i + 1) % STREAMS.length)}>
             {t('home.chapel2')}

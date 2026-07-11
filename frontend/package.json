@@ -11,6 +11,7 @@
     "lint:fix": "eslint src --ext ts,tsx --fix"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.2",
     "axios": "^1.7.2",
     "hls.js": "^1.6.16",
     "i18next": "^26.3.6",
