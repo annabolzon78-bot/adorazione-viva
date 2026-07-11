@@ -117,3 +117,42 @@ button { font-family:'Lato',sans-serif; }
 .live-chip { display:inline-flex; align-items:center; gap:6px; background:rgba(200,168,75,.12); border:1px solid rgba(200,168,75,.3); border-radius:100px; padding:4px 12px; font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.1em; color:var(--gold); }
 .ldot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:ldpulse 1.8s ease infinite; flex-shrink:0; }
 @keyframes ldpulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(200,168,75,.4)} 50%{opacity:.6;box-shadow:0 0 0 5px rgba(200,168,75,0)} }
+
+/* ── LANGUAGE SWITCHER ── */
+.ls-btn {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 8px; border-radius: 8px;
+  border: 1.5px solid var(--br); background: var(--bg);
+  cursor: pointer; font-family: 'Lato', sans-serif;
+  transition: all .2s; flex-shrink: 0;
+}
+.ls-btn:hover { border-color: var(--red); }
+.ls-code { font-size: .6rem; font-weight: 700; color: var(--t2); }
+.ls-backdrop { position: fixed; inset: 0; z-index: 40; }
+.ls-dropdown {
+  position: absolute; top: 42px; right: 0;
+  background: var(--white); border: 1px solid var(--br);
+  border-radius: 12px; box-shadow: var(--sh);
+  z-index: 50; min-width: 160px; overflow: hidden;
+  max-height: 320px; overflow-y: auto;
+}
+.ls-option {
+  display: block; width: 100%; text-align: left;
+  padding: 9px 14px; border: none; background: none;
+  font-family: 'Lato', sans-serif; font-size: .82rem;
+  color: var(--text); cursor: pointer; transition: background .15s;
+}
+.ls-option:hover  { background: var(--bg); }
+.ls-option.active { background: var(--redl); color: var(--red); font-weight: 700; }
+
+/* ── RTL SUPPORT ── */
+[dir="rtl"] .bottom-nav { direction: rtl; }
+[dir="rtl"] .ls-dropdown { right: auto; left: 0; }
+[dir="rtl"] .ls-option { text-align: right; }
+[dir="rtl"] .app-header { direction: rtl; }
+[dir="rtl"] .home-cta-grid { direction: rtl; }
+[dir="rtl"] .pg { direction: rtl; }
+
+/* Header fix with language switcher */
+.ah-logo-name { font-family:'Cinzel',serif; font-size:.9rem; color:var(--red); font-weight:700; }
+.ah-tagline   { font-size:.5rem; color:var(--t3); letter-spacing:.08em; }

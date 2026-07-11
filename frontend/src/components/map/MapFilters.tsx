@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import { type Dispatch, type SetStateAction } from 'react'
 import type { MapFilter } from '../../types'
 
+// MapFilters — i18n applied via props labels (passed from Trova.tsx)
 interface Props {
   filter:     MapFilter
   setFilter:  Dispatch<SetStateAction<MapFilter>>
