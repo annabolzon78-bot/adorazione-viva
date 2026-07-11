@@ -27,7 +27,7 @@ function PageLoader() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={(import.meta as any).env?.BASE_URL ?? '/'}>
       <Routes>
         {/* Auth routes — senza layout app */}
         <Route path="/login"    element={<Login />} />
