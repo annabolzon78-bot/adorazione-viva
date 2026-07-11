@@ -49,7 +49,7 @@ export function Login() {
       <div className="auth-card">
         <div className="auth-brand">
           <span className="auth-brand-ico">❤️‍🔥</span>
-          <div className="auth-brand-name">Adorazione Viva</div>
+          <div className="auth-brand-name">Adorazione Eucaristica</div>
         </div>
 
         {isDemoMode && (

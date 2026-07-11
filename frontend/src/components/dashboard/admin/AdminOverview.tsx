@@ -18,7 +18,7 @@ export function AdminOverview({ stats, onNavigate }: Props) {
     <div className="panel-wrap">
       <div className="panel-header">
         <h1 className="panel-title">🌍 Pannello Amministratore Mondiale</h1>
-        <p className="panel-sub">Gestione globale della piattaforma Adorazione Viva</p>
+        <p className="panel-sub">Gestione globale della piattaforma Adorazione Eucaristica</p>
       </div>
       <div className="stats-grid">
         {GLOBAL_STATS.map(({label,value,icon,color})=>(

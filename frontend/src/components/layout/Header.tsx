@@ -11,7 +11,7 @@ export function Header() {
       <div className="ah-logo">
         <span style={{ fontSize:'1.4rem' }}>❤️‍🔥</span>
         <div>
-          <div className="ah-logo-name">Adorazione Viva</div>
+          <div className="ah-logo-name">Adorazione Eucaristica</div>
           <div className="ah-tagline">{t('header.tagline')}</div>
         </div>
       </div>

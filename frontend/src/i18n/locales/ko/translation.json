@@ -89,7 +89,7 @@
     "geo_searching": "근처 성당 검색 중..."
   },
   "live": {
-    "title": "Adorazione Viva",
+    "title": "성체 조배",
     "subtitle": "전 세계에서 라이브 스트리밍",
     "my_parish": "내 본당",
     "my_streams": "내 스트리밍",
@@ -224,7 +224,7 @@
     "available": "가능",
     "registered_adorers": "등록된 경배자",
     "vision_quote": "「이 프로젝트가 크게 성장한다면, 전 세계 성체 조배 장소를 찾는 글로벌 기준이 될 수 있습니다.」",
-    "vision_author": "— Adorazione Viva 비전"
+    "vision_author": "— 성체 조배 플랫폼 비전"
   },
   "lang": {
     "select": "언어",

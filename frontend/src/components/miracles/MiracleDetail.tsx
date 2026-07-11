@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 import type { Miracle }       from '../../hooks/useMiracles'
 import { fetchMiracleDetail } from '../../hooks/useMiracles'
@@ -34,6 +35,7 @@ export function MiracleDetail({ miracle: initial, slug, onClose }: Props) {
     <div className="md-error"><span>Miracolo non trovato.</span><button onClick={onClose}>✕</button></div>
   )
 
+  const { t } = useTranslation()
   const m = miracle
   const lc = LEVEL_COLOR[m.verificationLevel] ?? '#6b7280'
 
@@ -84,13 +86,13 @@ export function MiracleDetail({ miracle: initial, slug, onClose }: Props) {
         {tab === 'overview' && (
           <div className="md-section">
             <p className="md-summary">{m.summary}</p>
-            {m.context && <><div className="md-section-label">CONTESTO STORICO</div><p className="md-text">{m.context}</p></>}
-            {m.miracle && <><div className="md-section-label">L'EVENTO</div><p className="md-text">{m.miracle}</p></>}
+            {m.context && <><div className="md-section-label">{t('miracles.historical_context')}</div><p className="md-text">{m.context}</p></>}
+            {m.miracle && <><div className="md-section-label">{t('miracles.the_event')}</div><p className="md-text">{m.miracle}</p></>}
             {m.fullDescription && !m.miracle && <p className="md-text">{m.fullDescription}</p>}
-            {m.aftermath && <><div className="md-section-label">CONSEGUENZE E STORIA</div><p className="md-text">{m.aftermath}</p></>}
+            {m.aftermath && <><div className="md-section-label">{t('miracles.history_aftermath')}</div><p className="md-text">{m.aftermath}</p></>}
             {m.conservedAt && (
               <div className="md-info-box">
-                <div className="md-info-label">🏛 CONSERVATO A</div>
+                <div className="md-info-label">{t('miracles.conserved_at')}</div>
                 <div className="md-info-val">{m.conservedAt}</div>
                 {m.openingHours && <div className="md-info-sub">⏰ {m.openingHours}</div>}
                 {m.entryFee    && <div className="md-info-sub">🎟 {m.entryFee}</div>}
@@ -103,13 +105,13 @@ export function MiracleDetail({ miracle: initial, slug, onClose }: Props) {
         {tab === 'science' && (
           <div className="md-section">
             <div className="md-sci-grid">
-              {m.tissueType && <div className="md-sci-card"><div className="md-sci-l">TESSUTO</div><div className="md-sci-v">🫀 {m.tissueType}</div></div>}
-              {m.bloodType  && <div className="md-sci-card"><div className="md-sci-l">GRUPPO SANGUIGNO</div><div className="md-sci-v">🩸 {m.bloodType}</div></div>}
-              {m.analyzedBy && <div className="md-sci-card"><div className="md-sci-l">ANALIZZATO DA</div><div className="md-sci-v">🔬 {m.analyzedBy}</div></div>}
-              {m.analysisYear && <div className="md-sci-card"><div className="md-sci-l">ANNO ANALISI</div><div className="md-sci-v">📅 {m.analysisYear}</div></div>}
-              {m.analysisInstitution && <div className="md-sci-card md-sci-full"><div className="md-sci-l">ISTITUZIONE</div><div className="md-sci-v">🏫 {m.analysisInstitution}</div></div>}
+              {m.tissueType && <div className="md-sci-card"><div className="md-sci-l">{t('miracles.tissue')}</div><div className="md-sci-v">🫀 {m.tissueType}</div></div>}
+              {m.bloodType  && <div className="md-sci-card"><div className="md-sci-l">{t('miracles.blood_type')}</div><div className="md-sci-v">🩸 {m.bloodType}</div></div>}
+              {m.analyzedBy && <div className="md-sci-card"><div className="md-sci-l">{t('miracles.analyzed_by')}</div><div className="md-sci-v">🔬 {m.analyzedBy}</div></div>}
+              {m.analysisYear && <div className="md-sci-card"><div className="md-sci-l">{t('miracles.analysis_year')}</div><div className="md-sci-v">📅 {m.analysisYear}</div></div>}
+              {m.analysisInstitution && <div className="md-sci-card md-sci-full"><div className="md-sci-l">{t('miracles.institution')}</div><div className="md-sci-v">🏫 {m.analysisInstitution}</div></div>}
             </div>
-            {m.scientificAnalysis && <><div className="md-section-label">DETTAGLIO ANALISI</div><p className="md-text">{m.scientificAnalysis}</p></>}
+            {m.scientificAnalysis && <><div className="md-section-label">{t('miracles.analysis_detail')}</div><p className="md-text">{m.scientificAnalysis}</p></>}
           </div>
         )}
 
@@ -117,18 +119,18 @@ export function MiracleDetail({ miracle: initial, slug, onClose }: Props) {
           <div className="md-section">
             {m.officialRecognition && <div className="md-info-box"><div className="md-info-label">✝️ RICONOSCIMENTO UFFICIALE</div><div className="md-info-val">{m.officialRecognition}</div></div>}
             {m.recognizedBy && <div className="md-info-box"><div className="md-info-label">👤 RICONOSCIUTO DA</div><div className="md-info-val">{m.recognizedBy}{m.recognitionYear ? ` (${m.recognitionYear})` : ''}</div></div>}
-            {m.ecclesiasticalRecognition && <><div className="md-section-label">DETTAGLIO ECCLESIASTICO</div><p className="md-text">{m.ecclesiasticalRecognition}</p></>}
+            {m.ecclesiasticalRecognition && <><div className="md-section-label">{t('miracles.ecclesiastical_detail')}</div><p className="md-text">{m.ecclesiasticalRecognition}</p></>}
           </div>
         )}
 
         {tab === 'media' && (
           <div className="md-section">
             {(m.images?.length ?? 0) > 0 && (
-              <><div className="md-section-label">IMMAGINI</div>
+              <><div className="md-section-label">{t('miracles.images')}</div>
               <MiracleGallery images={m.images ?? []} title={m.title} /></>
             )}
             {(m.videos?.length ?? 0) > 0 && (
-              <><div className="md-section-label" style={{marginTop:16}}>VIDEO</div>
+              <><div className="md-section-label" style={{marginTop:16}}>{t('miracles.videos')}</div>
               <div className="md-videos">
                 {m.videos!.map(v => (
                   <div key={v.id} className="md-video-item">
@@ -208,7 +210,7 @@ export function MiracleDetail({ miracle: initial, slug, onClose }: Props) {
         {/* Fonti */}
         {tab === 'overview' && (m as any).sources?.length > 0 && (
           <div className="md-sources">
-            <div className="md-section-label">FONTI</div>
+            <div className="md-section-label">{t('miracles.sources')}</div>
             {((m as any).sources as string[]).map((s, i) => (
               <a key={i} href={s} target="_blank" rel="noopener noreferrer" className="md-source-link">{s}</a>
             ))}

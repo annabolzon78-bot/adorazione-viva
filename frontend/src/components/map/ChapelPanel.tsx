@@ -1,112 +1,80 @@
+import { useTranslation } from 'react-i18next'
 import type { Chapel } from '../../types'
 
-interface Props {
-  chapel:   Chapel | null
-  onClose:  () => void
-}
+interface Props { chapel: Chapel; onClose: () => void }
 
 const TYPE_LABEL: Record<string, string> = {
-  PERPETUA:    '♾ Adorazione perpetua',
-  GIORNALIERA: '🌅 Adorazione giornaliera',
-  SETTIMANALE: '📅 Adorazione settimanale',
-  MENSILE:     '🗓 Adorazione mensile',
-  OCCASIONALE: '🎯 Adorazione occasionale',
+  PERPETUA:'Perpetua 24h', GIORNALIERA:'Giornaliera',
+  SETTIMANALE:'Settimanale', MENSILE:'Mensile',
+  OCCASIONALE:'Occasionale', ONLINE:'Online',
 }
 
 export function ChapelPanel({ chapel, onClose }: Props) {
-  if (!chapel) return null
+  const { t } = useTranslation()
 
-  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${chapel.lat},${chapel.lng}&travelmode=driving`
-  const osmUrl = `https://www.openstreetmap.org/?mlat=${chapel.lat}&mlon=${chapel.lng}&zoom=17`
+  const goo = `https://www.google.com/maps/dir/?api=1&destination=${chapel.lat},${chapel.lng}`
+  const osm = `https://www.openstreetmap.org/?mlat=${chapel.lat}&mlon=${chapel.lng}&zoom=15`
 
   return (
-    <div className={`chapel-panel ${chapel ? 'visible' : ''}`}>
+    <div className="chapel-panel">
       {/* Header */}
       <div className="cp-header">
-        <div className="cp-title-row">
-          <div>
-            <div className="cp-name">{chapel.name}</div>
-            <div className="cp-city">{chapel.city}{chapel.country ? `, ${chapel.country}` : ''}</div>
-          </div>
-          <button className="cp-close" onClick={onClose}>✕</button>
+        <div>
+          <div className="cp-name">{chapel.name}</div>
+          {chapel.parish && <div className="cp-parish">{chapel.parish.name}</div>}
         </div>
-
-        {/* Stato */}
-        <div className="cp-status-row">
-          {chapel.isOpenNow
-            ? <span className="cp-badge cp-badge-open">● Aperta ora</span>
-            : <span className="cp-badge cp-badge-closed">○ Chiusa</span>
-          }
-          {chapel.is24h && <span className="cp-badge cp-badge-24">🕐 24h</span>}
-          {chapel.hasLiveStream && <span className="cp-badge cp-badge-live">▶ Live</span>}
-        </div>
+        <button className="cp-close" onClick={onClose}>✕</button>
       </div>
 
-      {/* Body */}
-      <div className="cp-body">
-        {/* Tipo adorazione */}
+      {/* Status */}
+      <div className="cp-status-row">
+        <span className={`cp-status ${chapel.isOpenNow ? 'open' : 'closed'}`}>
+          {chapel.isOpenNow ? `● ${t('map.open_at')}` : `○ ${t('map.closed')}`}
+        </span>
+        {chapel.is24h && <span className="cp-tag">{t('common.always_open')}</span>}
+        {chapel.hasLiveStream && <span className="cp-tag cp-tag-live">● Live</span>}
+        {chapel.hasConfessions && <span className="cp-tag">{t('common.confessions')}</span>}
+        {chapel.accessible && <span className="cp-tag">♿</span>}
+      </div>
+
+      {/* Tipo adorazione */}
+      <div className="cp-section">
+        <div className="cp-section-label">{t('map.adoration_type')}</div>
+        <div className="cp-value">{TYPE_LABEL[chapel.adorationType] ?? chapel.adorationType}</div>
+      </div>
+
+      {/* Indirizzo */}
+      {chapel.address && (
         <div className="cp-section">
-          <div className="cp-label">TIPO DI ADORAZIONE</div>
-          <div className="cp-type">{TYPE_LABEL[chapel.adorationType] ?? chapel.adorationType}</div>
+          <div className="cp-section-label">{t('map.address')}</div>
+          <div className="cp-value">{chapel.address}{chapel.city ? `, ${chapel.city}` : ''}</div>
         </div>
+      )}
 
-        {/* Indirizzo */}
+      {/* Contatti */}
+      {(chapel.phone || chapel.email || chapel.websiteUrl) && (
         <div className="cp-section">
-          <div className="cp-label">INDIRIZZO</div>
-          <div className="cp-value">📍 {chapel.address}</div>
+          <div className="cp-section-label">{t('map.contact', 'CONTATTI')}</div>
+          {chapel.phone      && <div className="cp-contact">📞 {chapel.phone}</div>}
+          {chapel.email      && <div className="cp-contact">✉️ {chapel.email}</div>}
+          {chapel.websiteUrl && <a href={chapel.websiteUrl} target="_blank" rel="noopener noreferrer" className="cp-link">🌐 {t('common.website')}</a>}
         </div>
+      )}
 
-        {/* Servizi */}
-        <div className="cp-section">
-          <div className="cp-label">SERVIZI</div>
-          <div className="cp-services">
-            {(chapel as any).hasMass        && <span className="cp-svc">✝️ Messa</span>}
-            {chapel.hasConfessions           && <span className="cp-svc">🙏 Confessioni</span>}
-            {chapel.hasLiveStream            && <span className="cp-svc">▶ Streaming</span>}
-            {chapel.accessible               && <span className="cp-svc">♿ Accessibile</span>}
-          </div>
-        </div>
-
-        {/* Live stream */}
-        {chapel.hasLiveStream && (chapel as any).streamUrl && (
-          <div className="cp-section">
-            <div className="cp-label">DIRETTA LIVE</div>
-            <a
-              href={(chapel as any).streamUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cp-stream-link"
-            >
-              ▶ Guarda la diretta
-            </a>
-          </div>
-        )}
-
-        {/* Navigazione */}
-        <div className="cp-section">
-          <div className="cp-label">NAVIGAZIONE</div>
-          <div className="cp-nav-buttons">
-            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="cp-nav-btn cp-nav-google">
-              <span>📍</span>
-              <span>Google Maps</span>
-            </a>
-            <a href={osmUrl} target="_blank" rel="noopener noreferrer" className="cp-nav-btn cp-nav-osm">
-              <span>🗺️</span>
-              <span>OpenStreetMap</span>
-            </a>
-          </div>
-        </div>
-
-        {/* CTA principale */}
-        <a
-          href={googleMapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cp-portami"
-        >
-          ❤️‍🔥 Portami da Gesù
+      {/* Navigazione */}
+      <div className="cp-nav-row">
+        <a href={goo} target="_blank" rel="noopener noreferrer" className="cp-nav-btn cp-nav-google">
+          📍 {t('common.directions_google')}
+        </a>
+        <a href={osm} target="_blank" rel="noopener noreferrer" className="cp-nav-btn cp-nav-osm">
+          🗺 {t('common.directions_osm')}
         </a>
       </div>
+
+      {/* Pulsante principale */}
+      <a href={goo} target="_blank" rel="noopener noreferrer" className="cp-portami">
+        {t('map.portami')}
+      </a>
     </div>
   )
 }

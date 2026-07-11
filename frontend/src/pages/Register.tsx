@@ -65,7 +65,7 @@ export function Register() {
       <div className="auth-card">
         <div className="auth-brand">
           <span className="auth-brand-ico">❤️‍🔥</span>
-          <div className="auth-brand-name">Adorazione Viva</div>
+          <div className="auth-brand-name">Adorazione Eucaristica</div>
         </div>
         <h1 className="auth-title">Crea account</h1>
 
@@ -108,7 +108,7 @@ export function Register() {
         {/* Step 2: Ruolo */}
         {step === 'role' && (
           <div className="auth-form">
-            <p className="auth-sub">Come vuoi usare Adorazione Viva?</p>
+            <p className="auth-sub">Come vuoi usare Adorazione Eucaristica?</p>
             {[
               { role:'USER' as Role, icon:'🙏', title:'Fedele', desc:'Cerco cappelle, seguo streaming, tengo il diario spirituale' },
               { role:'PARISH_ADMIN' as Role, icon:'⛪', title:'Amministratore di Parrocchia', desc:'Gestisco gli orari, lo streaming e gli eventi della mia parrocchia' },

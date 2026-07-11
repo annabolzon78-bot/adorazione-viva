@@ -40,7 +40,7 @@
   },
   "header": {
     "adorers_now": "人が世界中で今礼拝中",
-    "tagline": "イエスはあなたを待っています・どこにいても"
+    "tagline": "イエスはあなたを待っています · どこにいても"
   },
   "home": {
     "hero_title": "イエスはあなたを待っています",
@@ -89,7 +89,7 @@
     "geo_searching": "近くの礼拝堂を検索中..."
   },
   "live": {
-    "title": "Adorazione Viva",
+    "title": "聖体礼拝",
     "subtitle": "世界中からのライブ配信",
     "my_parish": "私の教区",
     "my_streams": "あなたの配信",
@@ -224,7 +224,7 @@
     "available": "利用可能",
     "registered_adorers": "登録済み礼拝者",
     "vision_quote": "「このプロジェクトが大きく成長すれば、聖体礼拝の場所を見つけるための世界的な基準となるかもしれません。」",
-    "vision_author": "— Adorazione Viva ビジョン"
+    "vision_author": "— 聖体礼拝プラットフォームのビジョン"
   },
   "lang": {
     "select": "言語",

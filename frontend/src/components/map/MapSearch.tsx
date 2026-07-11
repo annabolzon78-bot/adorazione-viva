@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useState, useRef } from 'react'
 
 const COUNTRIES = [
@@ -35,6 +36,7 @@ export function MapSearch({
   searchCountry, setSearchCountry,
   onLocateMe, locating,
 }: Props) {
+  const { t } = useTranslation()
   const [expanded, setExpanded] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -48,7 +50,7 @@ export function MapSearch({
             ref={inputRef}
             className="ms-input"
             type="text"
-            placeholder="Cerca cappella, città, paese..."
+            placeholder={t('map.search_placeholder')}
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             onFocus={() => setExpanded(true)}
@@ -75,7 +77,7 @@ export function MapSearch({
               <input
                 className="ms-input-sm"
                 type="text"
-                placeholder="es. Roma, Navan..."
+                placeholder={t('map.city_placeholder')}
                 value={searchCity}
                 onChange={e => setSearchCity(e.target.value)}
               />

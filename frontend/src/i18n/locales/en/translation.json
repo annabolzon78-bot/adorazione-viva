@@ -89,7 +89,7 @@
     "geo_searching": "Searching nearby chapels..."
   },
   "live": {
-    "title": "Adorazione Viva",
+    "title": "Eucharistic Adoration",
     "subtitle": "Live streaming from around the world",
     "my_parish": "My parish",
     "my_streams": "Your streams",
@@ -224,7 +224,7 @@
     "available": "available",
     "registered_adorers": "Registered adorers",
     "vision_quote": "«If the project grew significantly, it could become the worldwide reference for finding a place of Eucharistic Adoration.»",
-    "vision_author": "— Adorazione Viva Vision"
+    "vision_author": "— Eucharistic Adoration Vision"
   },
   "lang": {
     "select": "Language",

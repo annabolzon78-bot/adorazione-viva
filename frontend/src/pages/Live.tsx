@@ -21,7 +21,7 @@ export function Live() {
       {/* ── HEADER ── */}
       <div className="live-header">
         <div className="lh-left">
-          <div className="lh-title">❤️‍🔥 Adorazione Viva</div>
+          <div className="lh-title">❤️‍🔥 Adorazione Eucaristica</div>
           <div className="lh-sub">Streaming in diretta da tutto il mondo</div>
         </div>
         <button
@@ -123,8 +123,8 @@ export function Live() {
               <StreamCard
                 key={stream.id}
                 stream={stream}
-                onClick={setSelected}
-                selected={selected?.id === stream.id}
+                onClick={(s) => setSelected(s)}
+                isSelected={selected?.id === stream.id}
               />
             ))}
           </div>

@@ -89,7 +89,7 @@
     "geo_searching": "A procurar capelas próximas..."
   },
   "live": {
-    "title": "Adorazione Viva",
+    "title": "Adoração Eucarística",
     "subtitle": "Transmissão ao vivo de todo o mundo",
     "my_parish": "A minha paróquia",
     "my_streams": "As tuas transmissões",
@@ -224,7 +224,7 @@
     "available": "disponíveis",
     "registered_adorers": "Adoradores registados",
     "vision_quote": "«Se o projeto crescesse muito, poderia tornar-se a referência mundial para encontrar um local de Adoração Eucarística.»",
-    "vision_author": "— Visão de Adorazione Viva"
+    "vision_author": "— Visão de Adoração Eucarística"
   },
   "lang": {
     "select": "Idioma",

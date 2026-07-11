@@ -35,7 +35,7 @@ export function DashboardLayout({ user, activeTab, setActiveTab, unread=0, child
       <aside className={`dash-sidebar ${sideOpen?'open':''}`}>
         <div className="ds-brand">
           <span style={{fontSize:'1.4rem'}}>❤️\u200d🔥</span>
-          <div><div className="ds-brand-name">Adorazione Viva</div><div className="ds-brand-sub">Dashboard</div></div>
+          <div><div className="ds-brand-name">Adorazione Eucaristica</div><div className="ds-brand-sub">Dashboard</div></div>
           <button className="ds-close" onClick={()=>setSideOpen(false)}>✕</button>
         </div>
         <div className="ds-user-card">
