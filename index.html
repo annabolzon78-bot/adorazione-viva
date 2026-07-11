@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+  <script>
+    // Intercetta redirect da 404.html per SPA routing
+    (function(){
+      var p = new URLSearchParams(window.location.search).get('p')
+      if (p) {
+        var url = window.location.origin + '/adorazione-viva' + p + window.location.hash
+        window.history.replaceState(null, null, url)
+      }
+    })()
+  </script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Adorazione Viva — Gesù Eucaristia ti aspetta. Ovunque tu sia." />
+    <title>Adorazione Viva</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" crossorigin src="/adorazione-viva/assets/index-CIYa5QlB.js"></script>
+    <link rel="modulepreload" crossorigin href="/adorazione-viva/assets/vendor-DenMWx0Z.js">
+    <link rel="modulepreload" crossorigin href="/adorazione-viva/assets/i18n-DnFyKl6w.js">
+    <link rel="modulepreload" crossorigin href="/adorazione-viva/assets/supabase-BSyF6ipX.js">
+    <link rel="stylesheet" crossorigin href="/adorazione-viva/assets/index-CsfuzbZ3.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
