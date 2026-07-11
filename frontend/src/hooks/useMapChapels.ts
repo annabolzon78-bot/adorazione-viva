@@ -60,6 +60,9 @@ export function useMapChapels(options: UseMapChapelsOptions): UseMapChapelsResul
       if (options.filter.has24h)         params.set('is24h',          'true')
       if (options.filter.hasLive)        params.set('hasLiveStream',  'true')
       if (options.filter.hasConfessions) params.set('hasConfessions', 'true')
+      if (options.filter.radiusKm)       params.set('radiusKm',       String(options.filter.radiusKm))
+      if (options.filter.lat)            params.set('lat',            String(options.filter.lat))
+      if (options.filter.lng)            params.set('lng',            String(options.filter.lng))
       if (options.searchCity)            params.set('q',              options.searchCity)
       if (options.searchCountry)         params.set('countryId',      options.searchCountry)
 
