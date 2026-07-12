@@ -66,6 +66,28 @@ export function MiracleCard({ miracle: m, onClick, selected }: Props) {
         <div className="mc-card-summary">
           {m.summary?.slice(0, 130)}{(m.summary?.length ?? 0) > 130 ? '…' : ''}
         </div>
+        {m.sourceUrl && m.summary?.startsWith('Miracolo eucaristico elencato') && (
+          <a
+            href={m.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="mc-card-source"
+          >
+            Scheda ufficiale ↗
+          </a>
+        )}
+        {m.sourceUrl && m.summary?.startsWith('Testimonianza legata') && (
+          <a
+            href={m.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="mc-card-source"
+          >
+            Scheda ufficiale ↗
+          </a>
+        )}
       </div>
     </div>
   )

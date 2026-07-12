@@ -34,6 +34,8 @@
 
 /* ── GRID ── */
 .mp-body { padding:12px 14px 24px; }
+.mp-country-group { margin-bottom:18px; }
+.mp-country-title { font-family:'Cinzel',serif; font-size:.82rem; letter-spacing:.06em; color:var(--red); border-bottom:2px solid var(--redb); padding-bottom:6px; margin-bottom:10px; }
 .mp-grid { display:grid; grid-template-columns:1fr; gap:12px; }
 @media(min-width:380px) { .mp-grid { grid-template-columns:1fr 1fr; } }
 
@@ -55,6 +57,7 @@
 .mc-card-cont { margin-left:auto; }
 .mc-card-year { font-family:'Cinzel',serif; font-size:.7rem; color:var(--red); margin-bottom:5px; }
 .mc-card-summary { font-size:.73rem; color:var(--t2); line-height:1.5; }
+.mc-card-source { display:inline-block; margin-top:6px; font-size:.68rem; font-weight:700; color:var(--red); text-decoration:none; }
 .mc-card-counts { display:flex; gap:8px; margin-top:7px; }
 .mc-card-counts span { font-size:.64rem; color:var(--t3); }
 
