@@ -1,16 +1,13 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-const STREAMS = [
-  { videoId: 'hMNLrStmcTs', watchUrl: 'https://www.youtube.com/watch?v=hMNLrStmcTs' },
-  { videoId: 'GlGkFWPKomU', watchUrl: 'https://www.youtube.com/live/GlGkFWPKomU?si=kg_GPkr5ranXUng0' },
-]
+// Unica diretta verificata (link YouTube confermato). Rimossa la prima voce
+// precedente (hMNLrStmcTs): non era una fonte YouTube verificata.
+const STREAM = { videoId: 'GlGkFWPKomU', watchUrl: 'https://www.youtube.com/live/GlGkFWPKomU?si=kg_GPkr5ranXUng0' }
 
 export function Home() {
   const { t }    = useTranslation()
   const navigate = useNavigate()
-  const [liveIdx, setLiveIdx]      = useState(0)
 
   const SHORTCUTS = [
     { ico:'🗺️', lbl: t('home.find_jesus'),  sub: t('home.find_jesus_sub'),  to:'/trova' },
@@ -18,19 +15,17 @@ export function Home() {
     { ico:'👥', lbl: t('home.community'),    sub: t('home.community_sub'),    to:'/comunita' },
   ]
 
-  const current = STREAMS[liveIdx]
-
   return (
     <div className="pg home-page">
       <a
-        href={current.watchUrl}
+        href={STREAM.watchUrl}
         target="_blank"
         rel="noopener noreferrer"
         style={{ display:'block', background:'#08050a', borderRadius:14, overflow:'hidden', marginBottom:14, textDecoration:'none' }}
       >
         <div style={{ position:'relative', aspectRatio:'16/9' }}>
           <img
-            src={`https://img.youtube.com/vi/${current.videoId}/hqdefault.jpg`}
+            src={`https://img.youtube.com/vi/${STREAM.videoId}/hqdefault.jpg`}
             alt={t('home.live_label')}
             style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }}
           />
@@ -43,12 +38,6 @@ export function Home() {
         <div style={{ padding:'10px 14px', display:'flex', alignItems:'center', gap:8 }}>
           <span className="ldot"/>
           <div style={{ fontFamily:'Cinzel,serif', fontSize:'.72rem', color:'#e8d08a' }}>{t('home.live_label')}</div>
-          <div
-            style={{ marginLeft:'auto', fontSize:'.62rem', color:'rgba(245,237,224,.45)', cursor:'pointer', borderBottom:'1px solid rgba(245,237,224,.2)' }}
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLiveIdx(i => (i + 1) % STREAMS.length) }}
-          >
-            {t('home.chapel2')}
-          </div>
         </div>
       </a>
 
