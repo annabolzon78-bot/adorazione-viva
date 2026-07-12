@@ -23,10 +23,21 @@ export function Home() {
 
   return (
     <div className="pg home-page">
-      <div className="home-hero">
-        <span className="hh-crown">❤️‍🔥</span>
-        <div className="hh-title">{t('home.hero_title')}</div>
-        <div className="hh-sub">{t('home.hero_sub')}</div>
+      <div style={{ background:'#08050a', borderRadius:14, overflow:'hidden', marginBottom:14 }}>
+        <iframe
+          src={STREAMS[liveIdx]}
+          style={{ width:'100%', aspectRatio:'16/9', border:'none', display:'block' }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          title={t('home.live_label')}
+        />
+        <div style={{ padding:'10px 14px', display:'flex', alignItems:'center', gap:8 }}>
+          <span className="ldot"/>
+          <div style={{ fontFamily:'Cinzel,serif', fontSize:'.72rem', color:'#e8d08a' }}>{t('home.live_label')}</div>
+          <div style={{ marginLeft:'auto', fontSize:'.62rem', color:'rgba(245,237,224,.45)', cursor:'pointer', borderBottom:'1px solid rgba(245,237,224,.2)' }}
+            onClick={() => setLiveIdx(i => (i + 1) % STREAMS.length)}>
+            {t('home.chapel2')}
+          </div>
+        </div>
       </div>
 
       {/* Demo banner */}
@@ -67,21 +78,10 @@ export function Home() {
         ))}
       </div>
 
-      <div style={{ background:'#08050a', borderRadius:14, overflow:'hidden', marginBottom:14 }}>
-        <iframe
-          src={STREAMS[liveIdx]}
-          style={{ width:'100%', aspectRatio:'16/9', border:'none', display:'block' }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          title={t('home.live_label')}
-        />
-        <div style={{ padding:'10px 14px', display:'flex', alignItems:'center', gap:8 }}>
-          <span className="ldot"/>
-          <div style={{ fontFamily:'Cinzel,serif', fontSize:'.72rem', color:'#e8d08a' }}>{t('home.live_label')}</div>
-          <div style={{ marginLeft:'auto', fontSize:'.62rem', color:'rgba(245,237,224,.45)', cursor:'pointer', borderBottom:'1px solid rgba(245,237,224,.2)' }}
-            onClick={() => setLiveIdx(i => (i + 1) % STREAMS.length)}>
-            {t('home.chapel2')}
-          </div>
-        </div>
+      <div className="home-hero">
+        <span className="hh-crown">❤️‍🔥</span>
+        <div className="hh-title">{t('home.hero_title')}</div>
+        <div className="hh-sub">{t('home.hero_sub')}</div>
       </div>
 
       <div style={{ background:'var(--goldl)', border:'1px solid var(--goldb)', borderRadius:10, padding:'12px 14px', textAlign:'center', fontStyle:'italic', fontSize:'.83rem', color:'var(--t2)', lineHeight:1.7 }}>
