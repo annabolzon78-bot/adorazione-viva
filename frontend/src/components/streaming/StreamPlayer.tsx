@@ -41,17 +41,24 @@ export function StreamPlayer({ stream, autoplay = true }: Props) {
 
   // ── YouTube / Vimeo ──────────────────────────────────────
   if (stream.type === 'YOUTUBE_LIVE' || stream.type === 'YOUTUBE_CHANNEL') {
-    const src = stream.embedUrl ?? `https://www.youtube-nocookie.com/embed/${stream.videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1`
+    // Niente iframe: YouTube mostra pubblicità dentro l'embed e non esiste
+    // un parametro per toglierla. Mostriamo un'anteprima statica cliccabile
+    // che apre YouTube in una scheda esterna — zero pubblicità dentro l'app.
+    const watchUrl = stream.url ?? (stream.videoId ? `https://www.youtube.com/watch?v=${stream.videoId}` : null)
+    if (!stream.videoId || !watchUrl) return <PlayerError message="Video YouTube non disponibile" stream={stream} />
     return (
-      <div className="player-wrap">
-        <iframe
-          src={src}
-          className="player-iframe"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          title={stream.title}
+      <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="player-wrap" style={{ display:'block', position:'relative', textDecoration:'none' }}>
+        <img
+          src={`https://img.youtube.com/vi/${stream.videoId}/hqdefault.jpg`}
+          alt={stream.title}
+          style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }}
         />
-      </div>
+        <div style={{ position:'absolute', inset:0, background:'rgba(8,5,10,.35)', display:'flex', alignItems:'center', justifyContent:'center' }}>
+          <div style={{ width:56, height:56, borderRadius:'50%', background:'rgba(0,0,0,.55)', border:'2px solid #e8d08a', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.4rem', color:'#e8d08a' }}>
+            ▶
+          </div>
+        </div>
+      </a>
     )
   }
 
