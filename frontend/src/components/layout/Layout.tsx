@@ -24,6 +24,16 @@ const SACRED_TRACKS = [
     url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Schola_Gregoriana-Pater_Noster.ogg',
     credit: 'Schola Gregoriana — Wikimedia Commons',
   },
+  {
+    title: 'Rorate Caeli',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Rorate_Caeli_~_Gregorian_Chant.ogg',
+    credit: 'Canto gregoriano — Wikimedia Commons',
+  },
+  {
+    title: 'Gloria',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/GloriaGregorianChant.ogg',
+    credit: 'Canto gregoriano — Wikimedia Commons',
+  },
 ]
 
 export function Layout() {
