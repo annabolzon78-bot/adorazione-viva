@@ -34,6 +34,26 @@ const SACRED_TRACKS = [
     url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/GloriaGregorianChant.ogg',
     credit: 'Canto gregoriano — Wikimedia Commons',
   },
+  {
+    title: 'Ave Maria',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Schola_Gregoriana-Ave_Maria.ogg',
+    credit: 'Schola Gregoriana — Wikimedia Commons',
+  },
+  {
+    title: 'Veni Sancte Spiritus',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Veni.sancte.spiritus.ogg',
+    credit: 'Sequenza di Pentecoste — Wikimedia Commons',
+  },
+  {
+    title: 'Antifona e Magnificat',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Schola_Gregoriana-Antiphona_et_Magnificat.ogg',
+    credit: 'Schola Gregoriana — Wikimedia Commons',
+  },
+  {
+    title: 'Kyrie Eleison',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Schola_Gregoriana-Kyrie_eleison.ogg',
+    credit: 'Schola Gregoriana — Wikimedia Commons',
+  },
 ]
 
 export function Layout() {
