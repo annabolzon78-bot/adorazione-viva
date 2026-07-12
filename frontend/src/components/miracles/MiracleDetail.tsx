@@ -6,10 +6,11 @@ import { MiracleGallery }     from './MiracleGallery'
 import { MiracleMap }         from './MiracleMap'
 
 const LEVEL_COLOR: Record<string, string> = {
-  SCIENTIFICO:'#166534', PONTIFICIO:'#8b1a2a', DIOCESANO:'#1e40af', STORICO:'#92400e',
+  SCIENTIFICO:'#1e40af', PONTIFICIO:'#8b1a2a', DIOCESANO:'#8b1a2a', STORICO:'#92400e',
 }
 const LEVEL_LABEL: Record<string, string> = {
-  SCIENTIFICO:'🔬 Analisi Scientifica', PONTIFICIO:'✝️ Pontificio', DIOCESANO:'⛪ Diocesano', STORICO:'📜 Storico',
+  SCIENTIFICO:'Oggetto di analisi', PONTIFICIO:'Riconosciuto dall\'autorità ecclesiastica',
+  DIOCESANO:'Riconosciuto dall\'autorità ecclesiastica', STORICO:'Documentato storicamente',
 }
 
 type Tab = 'overview'|'science'|'church'|'media'|'map'|'docs'|'biblio'|'pilgrimages'

@@ -17,8 +17,8 @@ export function Miracoli() {
     <div className="miracoli-page">
       {/* Header */}
       <div className="mp-header">
-        <div className="mp-header-title">❤️‍🔥 Miracoli Eucaristici</div>
-        <div className="mp-header-sub">Enciclopedia mondiale documentata</div>
+        <div className="mp-header-title">Miracoli Eucaristici</div>
+        <div className="mp-header-sub">Testimonianze documentate nel corso dei secoli</div>
       </div>
 
       {/* Detail overlay */}
