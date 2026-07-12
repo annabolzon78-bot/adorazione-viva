@@ -77,37 +77,6 @@ const FALLBACK_STREAMS: StreamData[] = [
       { id: 's2', dayOfWeek: 0, startTime: '00:00', endTime: '23:59', timezone: 'Europe/Paris', isRecurring: true },
     ], createdAt: '2024-01-01',
   },
-  {
-    id: '3', title: 'Santuario di Fátima — Cappella delle Apparizioni', type: 'YOUTUBE_CHANNEL',
-    status: 'ACTIVE', language: 'PT', continent: 'EUROPA',
-    url: 'https://www.youtube.com/@sanctuariumfatima', embedUrl: 'https://www.youtube.com/embed/live_stream?channel=UCFatima',
-    isDefault: false, isFeatured: false, viewerCount: 892, totalViews: 445000, tags: ['fatima', 'maria', 'portogallo'],
-    description: 'Diretta dal Santuario di Fátima, Portogallo.',
-    parish: { id: 'p3', name: 'Santuário de Fátima', city: { name: 'Fátima' }, country: { nameIt: 'Portogallo', flagEmoji: '🇵🇹' } },
-    schedules: [], createdAt: '2024-01-01',
-  },
-  {
-    id: '4', title: 'Parrocchia Sacro Cuore — Messa domenicale', type: 'HLS',
-    status: 'OFFLINE', language: 'IT', continent: 'EUROPA',
-    url: 'https://example.com/stream.m3u8', hlsUrl: 'https://example.com/stream.m3u8',
-    isDefault: false, isFeatured: false, totalViews: 2300, tags: ['messa', 'domenica', 'italia'],
-    description: 'Streaming HLS della Messa domenicale.',
-    parish: { id: 'p4', name: 'Parrocchia Sacro Cuore', city: { name: 'Roma' }, country: { nameIt: 'Italia', flagEmoji: '🇮🇹' } },
-    schedules: [
-      { id: 's4', dayOfWeek: 0, startTime: '10:00', endTime: '11:30', timezone: 'Europe/Rome', isRecurring: true },
-    ], createdAt: '2024-01-01',
-  },
-  {
-    id: '5', title: 'Manila Cathedral — Sunday Mass', type: 'FACEBOOK_LIVE',
-    status: 'SCHEDULED', language: 'EN', continent: 'ASIA',
-    url: 'https://www.facebook.com/manilacathedral', isDefault: false, isFeatured: false,
-    totalViews: 18900, tags: ['messa', 'filippine', 'facebook'],
-    description: 'Holy Mass from Manila Cathedral via Facebook Live.',
-    parish: { id: 'p5', name: 'Manila Cathedral', city: { name: 'Manila' }, country: { nameIt: 'Filippine', flagEmoji: '🇵🇭' } },
-    schedules: [
-      { id: 's5', dayOfWeek: 0, startTime: '08:00', endTime: '09:30', timezone: 'Asia/Manila', isRecurring: true },
-    ], createdAt: '2024-01-01',
-  },
 ]
 
 const API_URL = (import.meta as any).env?.VITE_API_URL ?? '/api'
