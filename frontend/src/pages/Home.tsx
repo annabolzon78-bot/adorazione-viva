@@ -11,7 +11,6 @@ export function Home() {
   const SHORTCUTS = [
     { ico:'🗺️', lbl: t('home.find_jesus'),  sub: t('home.find_jesus_sub'),  to:'/trova' },
     { ico:'🙏', lbl: t('home.pray'),         sub: t('home.pray_sub'),         to:'/prega' },
-    { ico:'👥', lbl: t('home.community'),    sub: t('home.community_sub'),    to:'/comunita' },
   ]
 
   return (
