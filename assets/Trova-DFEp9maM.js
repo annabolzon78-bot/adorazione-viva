@@ -1,5 +1,5 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/map-BPX1cL5W.js","assets/vendor-DenMWx0Z.js","assets/leaflet.markercluster-src-CRRqEbNh.js"])))=>i.map(i=>d[i]);
-import{j as e,_ as T}from"./index-o7eW3yCX.js";import{r as l}from"./vendor-DenMWx0Z.js";import{u as x}from"./i18n-DnFyKl6w.js";import"./supabase-BSyF6ipX.js";const w={PERPETUA:"#8b1a2a",GIORNALIERA:"#1e40af",SETTIMANALE:"#166534",MENSILE:"#7c3aed",OCCASIONALE:"#6b7280"};function j(s,a){const o=s.hasLiveStream?"#c8a84b":w[s.adorationType]??"#6b7280",f=s.isOpenNow?"3px solid #22c55e":"3px solid rgba(255,255,255,0.8)",t=s.adorationType==="PERPETUA"?16:13;return a.divIcon({className:"",html:`
+import{j as e,_ as T}from"./index-e6KYYJRt.js";import{r as l}from"./vendor-DenMWx0Z.js";import{u as x}from"./i18n-DnFyKl6w.js";import"./supabase-BSyF6ipX.js";const w={PERPETUA:"#8b1a2a",GIORNALIERA:"#1e40af",SETTIMANALE:"#166534",MENSILE:"#7c3aed",OCCASIONALE:"#6b7280"};function j(s,a){const o=s.hasLiveStream?"#c8a84b":w[s.adorationType]??"#6b7280",f=s.isOpenNow?"3px solid #22c55e":"3px solid rgba(255,255,255,0.8)",t=s.adorationType==="PERPETUA"?16:13;return a.divIcon({className:"",html:`
       <div style="
         width:${t}px; height:${t}px;
         background:${o};
